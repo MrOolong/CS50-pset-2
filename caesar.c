@@ -7,6 +7,7 @@
 int main(int argc, string argv[])
 {
     // declare global variables
+    //char innie[] =
     string k, userinput;
     int key;
     // if statement to check for arguments used - must be equal to two arguments
@@ -18,14 +19,16 @@ int main(int argc, string argv[])
 
         printf("plaintext: "); // Step 3 - Prompt user for plain text
         userinput = get_string();
+        printf("ciphertext: ");
 
         if(userinput != NULL)
         {
             for(int i = 0, n = strlen(userinput); i < n; i++)
             {
+                printf("\"%s\" is %d characters long.\n", userinput, n);
                 // for(int j = 0, iterate1 = n[i]; j < k; j++)
                 // {
-                    printf("%i", key); // TESTING
+                    // printf("%i", key); // TESTING
                 // }
             }
         }
