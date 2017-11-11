@@ -7,7 +7,6 @@
 int main(int argc, string argv[])
 {
     // declare global variables
-    //char innie[] =
     string k, userinput;
     int key;
     // if statement to check for arguments used - must be equal to two arguments
@@ -18,24 +17,35 @@ int main(int argc, string argv[])
         key = atoi(k);// Step 2 - Turn key into integer
 
         printf("plaintext: "); // Step 3 - Prompt user for plain text
-        userinput = get_string();
+        userinput = get_string(); // plaintext=userinput
         printf("ciphertext: ");
+        int n = strlen(userinput);
 
         if(userinput != NULL)
         {
-            for(int i = 0, n = strlen(userinput); i < n; i++)
+            for(int i = 0; i < n; i++)
             {
-                printf("\"%s\" is %d characters long.\n", userinput, n);
-                // for(int j = 0, iterate1 = n[i]; j < k; j++)
-                // {
-                    // printf("%i", key); // TESTING
-                // }
+                if(isalpha(userinput[i])) // checks if the letters are in the alphabet
+                {
+                    if (isupper(userinput[i]))
+                    {
+                        printf("%c", (userinput[i] - 'A' + key) % 26 + 'A');
+                    }
+                    else if (islower(userinput[i]))
+                    {
+                        printf("%c", (userinput[i] - 'a' + key) % 26 + 'a');
+                    }
+                    else
+                    {
+                        printf("%c", userinput[i]);
+                    }
+                }
             }
         }
     }
     else
     {
-        printf("Incorrect number of command-line arguments. Please enter two total\n");
+        printf("Usage: ./caesar k\n");
         return 1;
     }
 }
