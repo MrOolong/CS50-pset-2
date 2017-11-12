@@ -17,9 +17,9 @@ int main(int argc, string argv[])
         key = atoi(k);// Step 2 - Turn key into integer
 
         printf("plaintext: "); // Step 3 - Prompt user for plain text
-        userinput = get_string(); // plaintext=userinput
+        userinput = get_string(); // cs50plaintext=userinput
         printf("ciphertext: ");
-        int n = strlen(userinput);
+        int n = strlen(userinput); // storing the length of userinput
 
         if(userinput != NULL)
         {
@@ -29,11 +29,11 @@ int main(int argc, string argv[])
                 {
                     if (isupper(userinput[i]))
                     {
-                        printf("%c", (userinput[i] - 'A' + key) % 26 + 'A');
+                        printf("%c", (userinput[i] - 'A' + key) % 26 + 'A'); // printing uppercase
                     }
                     else if (islower(userinput[i]))
                     {
-                        printf("%c", (userinput[i] - 'a' + key) % 26 + 'a');
+                        printf("%c", (userinput[i] - 'a' + key) % 26 + 'a'); // printing lowercase
                     }
                     else
                     {
@@ -41,22 +41,12 @@ int main(int argc, string argv[])
                     }
                 }
             }
+            printf("\n");
         }
     }
     else
     {
-        printf("Usage: ./caesar k\n");
+        printf("Usage: ./caesar k\n"); // rule if user doesn't enter correct command-line arguments
         return 1;
     }
 }
-
-
-// printf("ciphertext: ");
-// int k = argv[];
-// string k = argv[];
-// string num = "50";
-// int i = atoi(num);
-// userinput needs to be indentified by each character
-// ciphertext = plaintext + key
-// ^ciphertext = (userinput + key) % 26
-
