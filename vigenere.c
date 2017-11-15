@@ -56,31 +56,31 @@ int main(int argc, string argv[])
                         {
                             if(islower(k[j]))
                             {
-                                if((userinput[i] + k[j] % 26) + 85 < 'a')
+                                if(((userinput[i] + k[j]) % 26) + 85 < 97)
                                 {
                                     printf("%c", ((userinput[i] + k[j]) % 26) + 111);
                                 }
                                 else
                                 {
-                                    printf("%c", ((userinput[i] + k[j]) % 26) + 85);
+                                    printf("%c", ((userinput[i] + k[j]) % 26) + 85); // printing lowercase
                                 }
                             }
-                            else
+                            else //
                             {
-                                if(((userinput[i] + k[j]) % 26) + 85 < 'a')
+                                if(((userinput[i] + k[j]) % 26) + 85 < 97)
                                 {
-                                    printf("%c", ((userinput[i] + (k[j] + 32)) % 26) + 111);
+                                    printf("%c", (((userinput[i] + k[j]) + 32) % 26) + 111);
                                 }
                                 else
                                 {
-                                    printf("%c", ((userinput[i] + (k[j] + 32)) % 26) + 85);
+                                    printf("%c", (((userinput[i] + k[j]) + 32) % 26) + 85);
                                 }
                             }
                         }
-                        else
-                        {
-                            printf("%c", userinput[i]);
-                        }
+                    }
+                    else
+                    {
+                        printf("%c", userinput[i]);
                     }
             }
             printf("\n");
