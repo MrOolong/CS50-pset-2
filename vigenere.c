@@ -65,7 +65,7 @@ int main(int argc, string argv[])
                                     printf("%c", ((userinput[i] + k[j]) % 26) + 85); // printing lowercase
                                 }
                             }
-                            else //
+                            else //not functioning below
                             {
                                 if(((userinput[i] + k[j]) % 26) + 85 < 97)
                                 {
