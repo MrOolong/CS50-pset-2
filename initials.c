@@ -8,19 +8,19 @@ int main(void)
     printf("\n");
     string s = get_string();
 
-    if(s != NULL)
+    if (s != NULL)
     {
-            for(int i = 0, namelength = strlen(s); i < namelength; i++)
+        for (int i = 0, namelength = strlen(s); i < namelength; i++)
+        {
+            if (i == 0)
             {
-                if(i == 0)
-                {
-                    printf("%c", toupper(s[0]));
-                }
-                else if(s[i] == 32)
-                {
-                    printf("%c", toupper(s[i + 1]));
-                }
+                printf("%c", toupper(s[0]));
             }
-            printf("\n");
+            else if (s[i] == 32)
+            {
+                printf("%c", toupper(s[i + 1]));
+            }
+        }
+        printf("\n");
     }
 }
