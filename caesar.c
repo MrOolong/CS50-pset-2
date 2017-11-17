@@ -10,7 +10,7 @@ int main(int argc, string argv[])
     string k, userinput;
     int key;
     // if statement to check for arguments used - must be equal to two arguments
-    if(argc == 2)
+    if (argc == 2)
     {
         k = argv[1];// Step 1 - Get key from command line argument
 
@@ -21,11 +21,11 @@ int main(int argc, string argv[])
         printf("ciphertext: ");
         int n = strlen(userinput); // storing the length of userinput
 
-        if(userinput != NULL)
+        if (userinput != NULL)
         {
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
-                if(isalpha(userinput[i])) // checks if the letters are in the alphabet
+                if (isalpha(userinput[i])) // checks if the letters are in the alphabet
                 {
                     if (isupper(userinput[i]))
                     {
