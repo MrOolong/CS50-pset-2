@@ -10,9 +10,9 @@ int main(int argc, string argv[])
     string k, userinput;
     int key;
     // if statement to check for arguments used - must be equal to two arguments
-    if(argc == 2)
+    if (argc == 2)
     {
-        for(int h = 0; h < strlen(argv[1]); h++)
+        for (int h = 0; h < strlen(argv[1]); h++)
         {
             if (isalpha(argv[1][h]) == false)
             {
@@ -32,56 +32,56 @@ int main(int argc, string argv[])
         int n = strlen(userinput); // storing the length of userinput
         int counter = -1;
 
-        if(userinput != NULL)
+        if (userinput != NULL)
         {
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
-                    if(isalpha(userinput[i])) // checks if the letters are in the alphabet
+                if (isalpha(userinput[i])) // checks if the letters are in the alphabet
+                {
+                    counter++;
+                    int j = counter % key;
+                    if (isupper(userinput[i]))
                     {
-                        counter++;
-                        int j = counter % key;
-                        if (isupper(userinput[i]))
+                        if (isupper(k[j]))
                         {
-                            if(isupper(k[j]))
+                            printf("%c", (userinput[i] + k[j]) % 26 + 'A'); // printing uppercase
+                        }
+                        else
+                        {
+                            printf("%c", (userinput[i] + k[j] - 32) % 26 + 'A'); // combination check
+                        }
+
+                    }
+                    else if (islower(userinput[i]))
+                    {
+                        if (islower(k[j]))
+                        {
+                            if (((userinput[i] + k[j]) % 26) + 85 < 97)
                             {
-                                printf("%c", (userinput[i] + k[j]) % 26 + 'A'); // printing uppercase
+                                printf("%c", ((userinput[i] + k[j]) % 26) + 111);
                             }
                             else
                             {
-                                printf("%c", (userinput[i] + k[j] - 32) % 26 + 'A'); // combination check
+                                printf("%c", ((userinput[i] + k[j]) % 26) + 85); // printing lowercase
                             }
-
                         }
-                        else if(islower(userinput[i]))
+                        else
                         {
-                            if(islower(k[j]))
+                            if (((userinput[i] + k[j]) % 26) + 85 < 97)
                             {
-                                if(((userinput[i] + k[j]) % 26) + 85 < 97)
-                                {
-                                    printf("%c", ((userinput[i] + k[j]) % 26) + 111);
-                                }
-                                else
-                                {
-                                    printf("%c", ((userinput[i] + k[j]) % 26) + 85); // printing lowercase
-                                }
+                                printf("%c", (((userinput[i] + k[j]) + 32) % 26) + 111);
                             }
-                            else //not functioning below
+                            else
                             {
-                                if(((userinput[i] + k[j]) % 26) + 85 < 97)
-                                {
-                                    printf("%c", (((userinput[i] + k[j]) + 32) % 26) + 111);
-                                }
-                                else
-                                {
-                                    printf("%c", (((userinput[i] + k[j]) + 32) % 26) + 85);
-                                }
+                                printf("%c", (((userinput[i] + k[j]) + 32) % 26) + 85);
                             }
                         }
                     }
-                    else
-                    {
-                        printf("%c", userinput[i]);
-                    }
+                }
+                else
+                {
+                    printf("%c", userinput[i]);
+                }
             }
             printf("\n");
         }
